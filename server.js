@@ -5,7 +5,7 @@ import doctorRoute from './routs/doctorRoute.js'
 import dotenv from "dotenv"
 import connectDB from "./config/db.js";
 import path from 'path'
-import {fileURLToPath} from 'url;
+import { fileURLToPath } from 'url';
 
 //dotenv conig
 dotenv.config();
@@ -23,16 +23,17 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+
 //routes
 app.use('/api/user', authRoute)
 app.use('/api/admin', adminRoute)
 app.use('/api/doctor', doctorRoute)
 
 //static files
-app.use(express.static(path.join(__dirname, "./client/build")))
+app.use(express.static(path.join(__dirname, './client/build')))
 
-app.use("*" , function(req,res){
-  res.sendFile(path.join(__dirname, "./client/build/index.html"))
+app.use('*',function(req,res){
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 //port
