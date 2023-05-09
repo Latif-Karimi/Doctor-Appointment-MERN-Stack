@@ -31,7 +31,7 @@ app.use('/api/doctor', doctorRoute)
 //static files
 app.use(express.static(path.join(__dirname, "./client/build")))
 
-app.get("*" , function(req,res){
+app.use("*" , function(req,res){
   res.sendFile(path.join(__dirname, "./client/build/index.html"))
 });
 
